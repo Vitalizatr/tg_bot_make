@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "lucky-leaf-487609-p2",
+  "private_key_id": "9d8d4cea23fb0b15e33a279e3371e8cee76e709f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDexGJl5B7oIPMd\nmcxqWecRZ+wXpgX7z7gk4TGMIUw29m7eY0f58AEvl9q5NPbcB9ne94B+PlzCjFQV\nK6mnCAf3iMOcbEMa6tcf7kI7ku5Vm8wtSgEaeR7fNWZYoCdVDUbFMvQwZj0q5bh2\n7DwquuRXOANaNnBTrEj5WumDOH+xwbnb7bM1sDOmFOcgYbmMqy3uadAAHziNEnan\nO/JXn0OEby37pEhRG7YX7acWSw84YrUJis6orTn7Vp8bygguDHQMA0IOW1c8myG9\n6Q7jBMyrT5fQ50nAqxH+avwtH0KCo9/OFkh08Dt/pa9v0oyckpKl7uFOcVBRGcbv\nmpwVgmcnAgMBAAECggEABajVmyMVie40Xv8mS1lnXnDWda9ZHZGkawNxn87Ewey2\n2l2JWZc4YH4qJ2RqFSL57Qk6sXpiHuszw6ntUHoKwcYuug2iEs/+kSgbdKoB9hjU\nMh5cMtD68M7Jf9zpwuZocuAdhhFC4pEdg5/y018WKAUbSLJzXhzVachegF/yFpD6\nRnSB0ow+mMomIkmTiSzK8PJrFFcWNbhof+dXo3/g+/GjuauqVEw/Vi2B6y+ZQjHm\nCWKzPdNgyggdf+GW8EYMcaw7tljavNY2FHOsitLLchCGKeQTjJ/koVMQIi0MUW9A\nXYsS+znF4QKeiOGyb3E0TL4bDhhT/74GIrkQC5zDeQKBgQDv4qSse7wgPcTe+MWK\na+xOQb1sWYyM0LQWe6saF6gv83Gf1YhhaHnl+RDRz6P9acRPEhv9Jj3Rue9fPHoY\nTRpjL5ibyvlIvqiN0FZeurxizxtL0O15xKpeaHdX82QHQAO9sKo7XhBRNbigqM3F\nI/lI6B6djK4FK8gLZCs9MXvOUwKBgQDtu1sgZRIwdjCGKmwWGrLc8mwdutfGhMS9\n6XnaHoVgxytsvJLoTFRglW5E8sb7ZAsRDP+2NtjJrB+EwSmuF9ZvAEp0qk+X13Cr\nMla5nRV6y3MlpsMCJ3Jwq17kJnv2dUbVRQXgwx3co1WGyDaL8m1aqZwE/pcm2VyD\nngI9utlhXQKBgQCFYafeoA5CfxXwRLLR/KAwAy2oCUK1KXZ46dqBb5X804fiL4Dd\naJIe5RYNEz9DsIOO06rsX08QRipq8d2RlY2OiPB576ocYKan86eSlJIa/r1WspzY\nkBmK1NtG8/Yycc2is5Bz4iGAhjZaXoHLk+0QNMCRKZ+5EFbyvoesRs9oMQKBgBm8\nmc31AzYZ5YDw4Mi31TtUR14kly2XvBDvUNDLUxc6GLpp4+GgOdZG9ywhuGcI2qXa\n6WgZofibWMIvg0qkrANSXb0pnvpKSZlPFtJ7bhLgKbQezKfUC3ClLN24SN1Srvtx\nwIQnu3jieeTgkf8unKYfDJQB1+1NxNU+6vEx5EzFAoGAP0BbkAsvtDBU6xmqzpfZ\nLmFWVInuHM6sMyn2XC9I9L0DOzUaoHwcFuqIQ3GYVDAWf5B9SAlC9qTGWu1WPJaN\ng7n20yerJbjmnwJBDABgOWPG/WTKw8ca/KIyS3/oBjWxAj9BOzUULqnhbvx88t/r\nJXellfHrZyblP4e0e2GhAL8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets@lucky-leaf-487609-p2.iam.gserviceaccount.com",
+  "client_id": "108875091165373681426",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets%40lucky-leaf-487609-p2.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
