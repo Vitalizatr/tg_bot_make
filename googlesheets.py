@@ -56,7 +56,6 @@ class Sheets:
     def sh_change(self,name):
         sheet_name = name
         if sheet_name in [ws.title for ws in self._sheet.worksheets()]:
-            print(f"Лист '{sheet_name}' существует ✅")
             self.sheet = self._sheet.worksheet(sheet_name)
         else:
             print(f"Лист '{sheet_name}' не найден ❌")
@@ -80,9 +79,9 @@ class Sheets:
         return False
     
     #поиск по слову Employ
-    def Em_search(self, dataa):
+    def Em_search(self, dataa,col = 3):
         self.sh_change("Employees")
-        cells= self.sheet.findall(dataa)
+        cells= self.sheet.findall(dataa, in_column=col)
         result=[]
         for a in cells:
             cell_lists  = self.sheet.range(f"A{a.row}:F{a.row}")
@@ -96,9 +95,9 @@ class Sheets:
         return result
     
     #поиск по слову Admin
-    def Ad_search(self, dataa):
+    def Ad_search(self, dataa,col = 3):
         self.sh_change("Admins")
-        cells= self.sheet.findall(dataa)
+        cells= self.sheet.findall(dataa, in_column=col)
         result=[]
         for a in cells:
             cell_lists  = self.sheet.range(f"A{a.row}:F{a.row}")
@@ -112,46 +111,47 @@ class Sheets:
         return result
     
     #поиск по работнике в or_em
-    def search_by_or_em(self,Em_Id):
+    def search_by_or_em(self,Em_Id,col = 1):
         self.sh_change("Order_Employees")
-        data = self.sheet.get_all_values()
+        data = self.sheet.findall(Em_Id, in_column=col)
         result=[]
-        for row in data:
-            if row == []: break
-            if(row[0] == Em_Id):
-                em_Id=row[0]
-                or_Id=row[1]
-                role=row[2]
-                rt=row[3]
-                rv=row[4]
-                id=row[5]
-                result.append(Or_Em_Data(em_Id,or_Id,role,rt,rv,id))
+        for rows in data:
+            if rows == []: break
+            row  = self.sheet.range(f"A{rows.row}:F{rows.row}")
+            em_Id=row[0]
+            or_Id=row[1]
+            role=row[2]
+            rt=row[3]
+            rv=row[4]
+            id=row[5]
+            result.append(Or_Em_Data(em_Id,or_Id,role,rt,rv,id))
         return result
 
     #поиск по работнике в расписание
-    def search_by_sc(self,Em_Id):
+    def search_by_sc(self,Em_Id,col=1):
         self.sh_change("Schedule")
-        data = self.sheet.get_all_values()
+        data = self.sheet.findall(Em_Id, in_column=col)
         result=[]
-        for row in data:
-            if row == []: break
-            if(row[0] == Em_Id):
-                em_Id=row[0]
-                or_Id=row[1]
-                startTime=row[2]
-                endTime=row[3]
-                address=row[4]
-                date=row[5]
-                result.append(Or_Em_Data(em_Id,or_Id,startTime,endTime,address,date))
+        for rows in data:
+            if rows == []: break
+            row  = self.sheet.range(f"A{rows.row}:F{rows.row}")
+            em_Id=row[0].value
+            or_Id=row[1].value
+            startTime=row[2].value
+            endTime=row[3].value
+            address=row[4].value
+            date=row[5].value
+            result.append(Or_Em_Data(em_Id,or_Id,startTime,endTime,address,date))
         return result
 
     # Запись
-    def append_data(self,name,phone,tgID,dr,status):
-        self.sh_change("Employees")
-        if (not self.Em_search(tgID)):
-            self.sheet.append_rows([
-            [name,phone,tgID,dr,status]
-            ])
+    def append_data(self,st,date,startTime,dr,price,address):
+        self.sh_change("Orders")
+        self.sheet.append_rows([[st,date,startTime,dr,price,address,self.date_now().strftime("%d.%m.%Y"),"new"]])
+    def append_task(self,name):
+        self.sh_change("Tasks")
+        self.sheet.append_rows([["purchase",f"Buy for {name}","new",self.date_now().strftime("%d.%m.%Y")]])
+                 
         
 
     #Удаление точной строки
@@ -163,13 +163,16 @@ class Sheets:
     def update_data(self,index):
         self.sh_change("Employees")
         if(self.sheet.acell(f"E{index}").value == "active"):
-            self.sheet.update(f"E{index}", "inactive")
+            self.sheet.update(f"E{index}", [["inactive"]])
             return "inactive"
         else:
-            self.sheet.update(f"E{index}", "active")
+            self.sheet.update(f"E{index}", [["active"]])
             return "active"
 
+    def update_status(self,index,status):
+        self.sh_change("Orders")
+        self.sheet.update(f"H{index}",[[status]])
+    
 if __name__ == "__main__":
     sh = Sheets("Example")
-    sh.delete_data(2)
     
