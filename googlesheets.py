@@ -47,7 +47,7 @@ class Sheets:
     def __init__(self,name):
         # Авторизация
         scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name(r'C:\Users\Admin\Desktop\Portfollio\tg_bot_make\lucky-leaf-487609-p2-9d8d4cea23fb.json', scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name(r'lucky-leaf-487609-p2-9d8d4cea23fb.json', scope)
         client = gspread.authorize(creds)
 
         # Открытие таблицы по названию
