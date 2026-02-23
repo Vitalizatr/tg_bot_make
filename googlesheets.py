@@ -46,8 +46,15 @@ class Sc_Data:
 class Sheets:
     def __init__(self,name):
         # Авторизация
-        scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name(r'lucky-leaf-487609-p2-9d8d4cea23fb.json', scope)
+        json_creds = json.loads(os.getenv("json"))
+
+        # В случае, если переносы сломаны
+        json_creds["private_key"] = json_creds["private_key"].replace("\\n", "\n")
+
+        # Авторизация
+        scope = ["https://spreadsheets.google.com/feeds",
+                "https://www.googleapis.com/auth/drive"]
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(json_creds, scope)
         client = gspread.authorize(creds)
 
         # Открытие таблицы по названию
