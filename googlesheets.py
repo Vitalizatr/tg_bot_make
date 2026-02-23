@@ -147,7 +147,7 @@ class Sheets:
     # Запись
     def append_data(self,st,date,startTime,dr,price,address):
         self.sh_change("Orders")
-        self.sheet.append_rows([[st,date,startTime,dr,price,address,self.date_now().strftime("%d.%m.%Y"),"new"]])
+        self.sheet.append_rows([[st,date,startTime,dr,price,"new",address,self.date_now().strftime("%d.%m.%Y")]])
     def append_task(self,name):
         self.sh_change("Tasks")
         self.sheet.append_rows([["purchase",f"Buy for {name}","new",self.date_now().strftime("%d.%m.%Y")]])
