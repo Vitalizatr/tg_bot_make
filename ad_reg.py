@@ -13,7 +13,7 @@ ad_reg = Router()
 @ad_reg.message(Command("admin"))
 async def command_admin(message: Message) -> None:
     try:
-        res = ser.df_employees[ser.df_employees["tgId"] == str(message.from_user.id)]
+        res = ser.df_admins[ser.df_admins == str(message.from_user.id)]
         keyboard2 = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="Přihlásit se do účtu",callback_data="hub_ad")]])
         if(not res.empty): 
             await message.answer(f"""Ahoj, {html.bold(message.from_user.full_name)}! Jste v databázi administrátorů. Můžete vstoupit do hubu.""",reply_markup=keyboard2)
